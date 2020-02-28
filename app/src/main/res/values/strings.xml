@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Traffic Law</string>
+
+    <string name="loginscreen">Log In</string>
+    <string name="title_activity_dashboard">Dashboard</string>
+    <string name="report_feedback">Report/Feedback</string>
+    <string name="ticket_status">Ticket Status</string>
+    <string name="welcome_mr">Welcome Mr.</string>
+    <string name="pay_ticket">Pay Ticket</string>
+    <string name="view_tickets">View Tickets</string>
+    <string name="my_profile">My Profile</string>
+    <string name="contact_us">Contact us</string>
+
+
+</resources>

@@ -75,13 +75,14 @@ public class MainActivity extends AppCompatActivity {
                                         {
                                             progressBar.setVisibility(View.GONE);
                                             Toast.makeText(MainActivity.this, "Successfully Logged In", Toast.LENGTH_LONG).show();
-                                            FirebaseUser user = mAuth.getCurrentUser();
+                                            FirebaseUser user = mAuth.getInstance().getCurrentUser();
 
                                                // user.getDisplayName();
                                                 System.out.println("Name of User" + user.getDisplayName());
 //                                                TextView tx= (TextView) findViewById(R.id.TitleofUser);
 //                                                tx.append(" " + user.getDisplayName());
-                                            String value= user.getDisplayName();
+
+                                            String value= user.getEmail();
                                             Intent i = new Intent(MainActivity.this, Dashboard.class);
                                             i.putExtra("key",value);
                                             startActivity(i);

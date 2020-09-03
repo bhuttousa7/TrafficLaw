@@ -77,7 +77,7 @@
         android:drawableStart="@drawable/profile"
         android:drawablePadding="5dp"
         android:elevation="2dp"
-        android:hint="Username"
+        android:hint="Name "
         android:inputType="text"
         android:maxLines="1"
         android:paddingStart="10dp"

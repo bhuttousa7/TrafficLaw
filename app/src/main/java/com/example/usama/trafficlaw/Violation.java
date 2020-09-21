@@ -1,32 +1,45 @@
 package com.example.usama.trafficlaw;
 
-import java.sql.Time;
+import android.annotation.SuppressLint;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Violation {
     private String TicketId, ViolationType, Location;
     private int Amount;
-    private Date violationDate, dueDate;
-    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+    private String violationDate;
+    private String dueDate;
 
-    public Violation(String ticketId, String violationType, String location, int amount, Date violationDate, Date dueDate) {
+
+    private String status;
+    @SuppressLint("SimpleDateFormat")
+    private DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+
+    public Violation(String ticketId, String violationType, String location, int amount, String violationDate, String dueDate, String status) {
         TicketId = ticketId;
         ViolationType = violationType;
         Location = location;
         Amount = amount;
         this.violationDate = violationDate;
         this.dueDate = dueDate;
+        this.status = status;
     }
     //Default Constructor for Sample Data and Testing
     public Violation() {
         TicketId = "ABC1234";
         ViolationType = "Red Light Violation";
-        Location = null;
+        Location = "Defence View";
         Amount = 500;
-        this.violationDate =  new Date();
-        this.dueDate = new Date();
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat dateformat = new SimpleDateFormat("dd-MMM-yyyy hh:mm:ss aa");
+        String datetime = dateformat.format(c.getTime());
+        System.out.println(datetime);
+        this.violationDate = datetime;
+        this.dueDate = datetime;
+        this.status= "Failed";
 
     }
 
@@ -63,19 +76,19 @@ public class Violation {
         Amount = amount;
     }
 
-    public Date getViolationDate() {
+    public String getViolationDate() {
         return violationDate;
     }
 
-    public void setViolationDate(Date violationDate) {
+    public void setViolationDate(String violationDate) {
         this.violationDate = violationDate;
     }
 
-    public Date getDueDate() {
+    public String getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(Date dueDate) {
+    public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
     }
 
@@ -86,4 +99,14 @@ public class Violation {
     public void setDateFormat(DateFormat dateFormat) {
         this.dateFormat = dateFormat;
     }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+
 }

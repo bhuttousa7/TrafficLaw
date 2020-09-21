@@ -45,9 +45,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         myViewHolder.Amount.setText(String.valueOf(mDataset.get(i).getAmount()));
         myViewHolder.ViolationType.setText(mDataset.get(i).getViolationType());
         myViewHolder.Location.setText(mDataset.get(i).getLocation());
-        myViewHolder.DateandTime.setText(mDataset.get(i).getViolationDate().toString());
-        myViewHolder.DueDate.setText(mDataset.get(i).getDueDate().toString());
-        final int pos= i;
+        myViewHolder.DateandTime.setText(mDataset.get(i).getViolationDate());
+        myViewHolder.DueDate.setText(mDataset.get(i).getDueDate());
+        String in= String.valueOf(i + 1);
+        myViewHolder.violationNumber.append(in);
 
     }
 
@@ -60,10 +61,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         {
                 TextView TicketID, Amount, ViolationType, Location;
                 TextView DateandTime;
-            TextView DueDate;
-
+                TextView DueDate;
+                TextView violationNumber;
                 public MyViewHolder(@NonNull View itemView) {
                     super(itemView);
+                    violationNumber  = (TextView) itemView.findViewById(R.id.textView4);
                     TicketID = (TextView) itemView.findViewById(R.id.ticketIDTextView);
                     Amount = (TextView)itemView.findViewById(R.id.AmountTextview);
                     ViolationType = (TextView)itemView.findViewById(R.id.violation_typeTextView);

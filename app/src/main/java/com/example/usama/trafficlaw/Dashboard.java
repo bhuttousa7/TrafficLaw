@@ -41,5 +41,21 @@ public class Dashboard extends AppCompatActivity {
         });
 
 
+
+        ImageButton ticketStatus =(ImageButton)findViewById(R.id.ticketStatus);
+        ticketStatus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i =new Intent(Dashboard.this,Status.class);
+                startActivity(i);
+
+
+
+            }
+        });
+
+
+
+
     }
 }

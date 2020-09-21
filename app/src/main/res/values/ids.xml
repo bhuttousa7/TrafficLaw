@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="statusViolation" type="id" />
+    <item name="ticketID_status" type="id" />
+    <item name="ticketIDtextView_status" type="id" />
+    <item name="Amount_status" type="id" />
+    <item name="AmountTextview_status" type="id" />
+    <item name="violation_type_status" type="id" />
+    <item name="violation_typeTextView_status" type="id" />
+    <item name="Location_status" type="id" />
+    <item name="LocationTextView_status" type="id" />
+    <item name="DateTimeTextView_status" type="id" />
+    <item name="button_status" type="id" />
+</resources>

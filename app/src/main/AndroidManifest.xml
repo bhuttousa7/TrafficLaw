@@ -13,13 +13,27 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".PaymentOptions" android:label="Payment Options"></activity>
+
+        <activity android:name=".Status" android:label="Status">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Dashboard"/>
+        </activity>
+
+        <activity
+            android:name=".PaymentOptions"
+            android:label="Payment Options" />
+
         <activity
             android:name=".SignUpActivity"
             android:label="Sign Up" />
-        <activity
+
+       <activity
             android:name=".NewViolations"
-            android:label="New Violations" />
+            android:label="New Violations">
+                <meta-data android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".Dashboard"/>
+            </activity>
+
         <activity
             android:name=".MainActivity"
             android:label="@string/loginscreen">
@@ -29,9 +43,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Dashboard"
-            android:label="Dashboard" />
+
+        <activity android:name=".Dashboard" android:label="Dashboard" />
     </application>
 
 </manifest>

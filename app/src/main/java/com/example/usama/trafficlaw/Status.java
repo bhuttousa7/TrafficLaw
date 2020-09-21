@@ -1,41 +1,48 @@
 package com.example.usama.trafficlaw;
 
-import android.app.ActionBar;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
 import java.util.ArrayList;
 
-public class NewViolations extends AppCompatActivity {
+public class Status extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private static String LOG_TAG = "CardViewActivity";
+    private static String LOG_TAG = "CardViewActivity_status";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_violations);
+        setContentView(R.layout.activity_status);
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
+
+        mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView_status);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new RecyclerViewAdapter(getDataSet());
+        mAdapter = new RecyclerViewAdapter_Status(Status.getDataSet());
         mRecyclerView.setAdapter(mAdapter);
 
     }
 
+    static ArrayList<Violation> getDataSet() {
+        ArrayList results = new ArrayList<Violation>();
+        for (int index = 0; index < 4; index++) {
+            Violation obj = new Violation();
+            results.add(index, obj);
+        }
+        return results;
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
-        ((RecyclerViewAdapter) mAdapter).setOnItemClickListener(new RecyclerViewAdapter
+        ((RecyclerViewAdapter_Status) mAdapter).setOnItemClickListener(new RecyclerViewAdapter_Status
                 .MyClickListener() {
             @Override
             public void onItemClick(final int position, View v) {
@@ -44,14 +51,4 @@ public class NewViolations extends AppCompatActivity {
             }
         });
     }
-    static ArrayList<Violation> getDataSet() {
-            ArrayList results = new ArrayList<Violation>();
-            for (int index = 0; index < 4; index++) {
-                Violation obj = new Violation();
-                results.add(index, obj);
-            }
-            return results;
-        }
-
-
 }

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView_status"
+    android:layout_width="match_parent"
+    android:layout_height="330dp"
+    android:elevation="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_gravity="center_horizontal"
+    app:cardCornerRadius="25dp"
+    android:layout_marginStart="5dp"
+
+
+    android:orientation="vertical"
+    tools:ignore="PrivateResource">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/statusViolation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Violation: "
+            android:textColor="@color/button_colors"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.054"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.032" />
+
+        <TextView
+            android:id="@+id/ticketID_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Ticket ID: "
+            android:textColor="@color/button_colors"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/statusViolation" />
+
+
+        <TextView
+            android:id="@+id/ticketIDtextView_status"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="56dp"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/ticketID_status"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/Amount_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Amount: "
+            android:textColor="@color/button_colors"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.049"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ticketID_status" />
+
+
+        <TextView
+            android:id="@+id/AmountTextview_status"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.763"
+            app:layout_constraintStart_toEndOf="@+id/Amount_status"
+            app:layout_constraintTop_toBottomOf="@+id/ticketIDtextView_status" />
+
+        <TextView
+            android:id="@+id/violation_type_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Violation Type: "
+            android:textColor="@color/button_colors"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.062"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Amount_status" />
+
+        <TextView
+            android:id="@+id/violation_typeTextView_status"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="56dp"
+            android:text="TextView"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/violation_type_status"
+            app:layout_constraintTop_toBottomOf="@+id/AmountTextview_status" />
+
+        <TextView
+            android:id="@+id/Location_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Location: "
+            android:textColor="@color/button_colors"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.051"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/violation_type_status" />
+
+        <TextView
+            android:id="@+id/LocationTextView_status"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.756"
+            app:layout_constraintStart_toEndOf="@+id/Location_status"
+            app:layout_constraintTop_toBottomOf="@+id/violation_typeTextView_status" />
+
+        <TextView
+            android:id="@+id/DateandTime_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Date and Time: "
+            android:textColor="@color/button_colors"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.062"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Location_status" />
+
+
+        <TextView
+            android:id="@+id/DateTimeTextView_status"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="TextView"
+
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.683"
+            app:layout_constraintStart_toEndOf="@+id/DateandTime_status"
+            app:layout_constraintTop_toBottomOf="@+id/LocationTextView_status" />
+
+        <Button
+            android:id="@+id/button_status"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/buttondesign"
+            android:text="@string/ticket_status"
+            android:textColor="@color/whitecolor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/DateTimeTextView_status"
+            app:layout_constraintVertical_bias="0.094" />
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.design.card.MaterialCardView>

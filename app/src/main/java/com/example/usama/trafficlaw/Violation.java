@@ -13,19 +13,36 @@ public class Violation {
     private String violationDate;
     private String dueDate;
 
+    private String Name;
+    private String numberPlate;
+    private String Cnic;
+
+
+
+
+    private String Phone;
+    private String LicenceNo;
+    private String City;
 
     private String status;
     @SuppressLint("SimpleDateFormat")
     private DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
-    public Violation(String ticketId, String violationType, String location, int amount, String violationDate, String dueDate, String status) {
+    public Violation(String ticketId, String violationType, String location, int amount, String violationDate, String dueDate, String status, String nPlate,
+                     String cnic, String Licence, String City, String name,String phoneNumber) {
         TicketId = ticketId;
         ViolationType = violationType;
         Location = location;
         Amount = amount;
         this.violationDate = violationDate;
         this.dueDate = dueDate;
+        this.numberPlate = nPlate;
+        this.Cnic = cnic;
+        this.LicenceNo = Licence;
+        this.City = City;
         this.status = status;
+        this.Name = name;
+        this.Phone = phoneNumber;
     }
     //Default Constructor for Sample Data and Testing
     public Violation() {
@@ -33,16 +50,28 @@ public class Violation {
         ViolationType = "Red Light Violation";
         Location = "Defence View";
         Amount = 500;
+        this.Name = "Default";
         Calendar c = Calendar.getInstance();
         SimpleDateFormat dateformat = new SimpleDateFormat("dd-MMM-yyyy hh:mm:ss aa");
         String datetime = dateformat.format(c.getTime());
-        System.out.println(datetime);
         this.violationDate = datetime;
         this.dueDate = datetime;
         this.status= "Failed";
-
+        this.numberPlate = "AVC-871";
+        this.Cnic = "43304-98711515-5";
+        this.LicenceNo = "AV034214";
+        this.City = "Karachi";
+        this.Phone = "+92332-2718432";
     }
 
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
 
     public String getTicketId() {
         return TicketId;
@@ -108,5 +137,42 @@ public class Violation {
         this.status = status;
     }
 
+    public String getNumberPlate() {
+        return numberPlate;
+    }
 
+    public void setNumberPlate(String numberPlate) {
+        this.numberPlate = numberPlate;
+    }
+
+    public String getCnic() {
+        return Cnic;
+    }
+
+    public void setCnic(String cnic) {
+        Cnic = cnic;
+    }
+
+    public String getLicenceNo() {
+        return LicenceNo;
+    }
+
+    public void setLicenceNo(String licenceNo) {
+        LicenceNo = licenceNo;
+    }
+
+    public String getCity() {
+        return City;
+    }
+
+    public void setCity(String city) {
+        City = city;
+    }
+    public String getPhone() {
+        return Phone;
+    }
+
+    public void setPhone(String phone) {
+        Phone = phone;
+    }
 }

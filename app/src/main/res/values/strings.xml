@@ -16,6 +16,7 @@
     <string name="pay">Pay</string>
     <string name="loginimage">LoginImage</string>
     <string name="username_or_email">Phone or Email</string>
+    <string name="violation_type">Violation Type:</string>
 
 
 </resources>

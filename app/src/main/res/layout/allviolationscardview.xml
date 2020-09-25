@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView_allviolations"
+    android:layout_width="match_parent"
+    android:layout_height="230dp"
+    android:elevation="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_gravity="center_horizontal"
+    app:cardCornerRadius="25dp"
+    android:layout_marginStart="5dp"
+    android:orientation="vertical"
+    tools:ignore="PrivateResource">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/violationNumber_allviolations"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Violation: "
+            android:textColor="@color/button_colors"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.054"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.032" />
+
+        <TextView
+            android:id="@+id/elpasedTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="210dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:text="1h ago"
+            android:textColor="@color/button_colors"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toTopOf="@+id/ticketIDtextView_allviolations"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/violationNumber_allviolations"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/ticketID_allviolations"
+            android:layout_width="91dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Ticket ID: "
+            android:textColor="@color/button_colors"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/violationNumber_allviolations" />
+
+
+        <TextView
+            android:id="@+id/ticketIDtextView_allviolations"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:layout_marginStart="172dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="56dp"
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/ticketID_allviolations"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/Amount_allviolations"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Amount: "
+            android:textColor="@color/button_colors"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.049"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ticketID_allviolations" />
+
+
+        <TextView
+            android:id="@+id/AmountTextview_allviolations"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:layout_marginTop="13dp"
+            android:text="TextView"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.763"
+            app:layout_constraintStart_toEndOf="@+id/Amount_allviolations"
+            app:layout_constraintTop_toBottomOf="@+id/ticketIDtextView_allviolations" />
+
+        <TextView
+            android:id="@+id/violation_type_allviolations"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/violation_type"
+            android:textColor="@color/button_colors"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.062"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Amount_allviolations" />
+
+        <TextView
+            android:id="@+id/violation_typeTextView_allviolations"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="56dp"
+            android:text="TextView"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/violation_type_allviolations"
+            app:layout_constraintTop_toBottomOf="@+id/AmountTextview_allviolations" />
+
+        <Button
+            android:id="@+id/viewDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/buttondesign"
+            android:elevation="10dp"
+            android:text="View"
+            android:textColor="@color/whitecolor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.949"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/violation_typeTextView_status"
+            app:layout_constraintVertical_bias="0.714" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.design.card.MaterialCardView>

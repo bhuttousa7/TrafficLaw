@@ -83,6 +83,7 @@
             android:layout_height="224dp"
             android:contentDescription="@string/proofimage"
 
+
             android:paddingTop="5dp"
             android:scaleType="fitXY"
             android:src="@drawable/sample"

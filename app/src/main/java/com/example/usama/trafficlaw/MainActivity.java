@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GetTokenResult;
 
 //Login Activity
 
@@ -75,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                                         {
                                             progressBar.setVisibility(View.GONE);
                                             Toast.makeText(MainActivity.this, "Successfully Logged In", Toast.LENGTH_LONG).show();
-                                            FirebaseUser user = mAuth.getInstance().getCurrentUser();
+                                            final FirebaseUser user = mAuth.getInstance().getCurrentUser();
 
                                                // user.getDisplayName();
                                                // System.out.println("Name of User" + user.getDisplayName());
@@ -86,7 +87,17 @@ public class MainActivity extends AppCompatActivity {
                                             Intent i = new Intent(MainActivity.this, Dashboard.class);
                                             i.putExtra("key",value);
                                             startActivity(i);
+                                           user.getIdToken(true).addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
+                                               @Override
+                                               public void onComplete(@NonNull Task<GetTokenResult> task) {
+                                                   if(task.isSuccessful())
+                                                   {
+                                                       String idtoken= task.getResult().getToken();
 
+                                                   }
+
+                                               }
+                                           });
 //
 //                                            Intent i =new Intent(MainActivity.this,Dashboard.class);
 //                                            startActivity(i);

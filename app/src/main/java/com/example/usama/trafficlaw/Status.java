@@ -25,19 +25,12 @@ public class Status extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new RecyclerViewAdapter_Status(Status.getDataSet());
+        mAdapter = new RecyclerViewAdapter_Status(Dashboard.getDataSet());
         mRecyclerView.setAdapter(mAdapter);
 
     }
 
-    static ArrayList<Violation> getDataSet() {
-        ArrayList results = new ArrayList<Violation>();
-        for (int index = 0; index < 4; index++) {
-            Violation obj = new Violation();
-            results.add(index, obj);
-        }
-        return results;
-    }
+
 
     @Override
     protected void onResume() {

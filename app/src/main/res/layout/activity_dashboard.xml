@@ -24,8 +24,6 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 
-
-
     <ImageButton
         android:id="@+id/payTicketBtn"
         android:layout_width="130dp"
@@ -39,7 +37,8 @@
 
 
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/global" />
+        app:srcCompat="@drawable/global"
+        android:contentDescription="NewViolations" />
 
     <TextView
         android:id="@+id/payticketText"
@@ -73,7 +72,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/punishment"
         android:focusable="true"
-        android:contentDescription="TODO" />
+        android:contentDescription="View Ticket Status" />
 
     <TextView
         android:id="@+id/ticketStatusText"
@@ -98,10 +97,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.021"
         app:layout_constraintStart_toStartOf="parent"
-
+        android:clickable="true"
 
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/trafficpolice" />
+        app:srcCompat="@drawable/trafficpolice"
+        android:focusable="true"
+        android:contentDescription="View All Tickets" />
 
 
     <TextView
@@ -130,9 +131,12 @@
         app:layout_constraintHorizontal_bias="0.764"
         app:layout_constraintStart_toStartOf="parent"
 
+        android:clickable="true"
 
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/user" />
+        app:srcCompat="@drawable/user"
+        android:focusable="true"
+        android:contentDescription="ProfileEdit" />
 
     <TextView
         android:id="@+id/profileText"

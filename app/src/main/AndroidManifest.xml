@@ -11,29 +11,48 @@
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
-
-        <activity android:name=".Status" android:label="Status">
+        android:theme="@style/AppTheme">
+        <activity android:name=".myProfile" android:label="My Profile">
             <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Dashboard"/>
+            android:value=".Dashboard" />
         </activity>
-
+        <activity
+            android:name=".ViewDetails"
+            android:label="View Details">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AllViolations" />
+        </activity>
+        <activity
+            android:name=".AllViolations"
+            android:label="All Violations">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Dashboard" />
+        </activity>
+        <activity
+            android:name=".Status"
+            android:label="Status">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Dashboard" />
+        </activity>
         <activity
             android:name=".PaymentOptions"
-            android:label="Payment Options" />
-
+            android:label="Payment Options" >
+           <meta-data android:name="android.support.PARENT_ACTIVITY"
+            android:value=".NewViolations" />
+        </activity>
         <activity
             android:name=".SignUpActivity"
             android:label="Sign Up" />
-
-       <activity
+        <activity
             android:name=".NewViolations"
             android:label="New Violations">
-                <meta-data android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".Dashboard"/>
-            </activity>
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Dashboard" />
+        </activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/loginscreen">
@@ -43,8 +62,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".Dashboard" android:label="Dashboard" />
+        <activity
+            android:name=".Dashboard"
+            android:label="Dashboard" />
     </application>
 
 </manifest>

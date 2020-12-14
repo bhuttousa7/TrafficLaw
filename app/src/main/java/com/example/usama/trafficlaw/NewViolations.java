@@ -1,63 +1,72 @@
 package com.example.usama.trafficlaw;
 
-import android.app.ActionBar;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.firebase.auth.FirebaseAuth;
-
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 public class NewViolations extends AppCompatActivity {
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
     private static String LOG_TAG = "CardViewActivity";
-
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private CollectionReference notebookRef = db.collection("ticket").document(DataBindFirestore.getUID()).collection("Tickets");
+    private FirestoreAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_violations);
+        setUpRecyclerView();
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
+//        mAdapter = new RecyclerViewAdapter(d.getDataSet());
+
+        //TextView noNew = (TextView) findViewById(R.id.NoNewViolation);
+//        if(d.getDataSet().isEmpty())
+//        {
+//            noNew.setVisibility(View.VISIBLE);
+//        }
+
+
+
+    }
+    private void setUpRecyclerView()
+    {
+        Query query = notebookRef.orderBy("TicketId", Query.Direction.DESCENDING);
+        FirestoreRecyclerOptions<Violation> options = new FirestoreRecyclerOptions.Builder<Violation>()
+            .setQuery(query, Violation.class)
+            .build();
+        adapter = new FirestoreAdapter(options);
+         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
         mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new RecyclerViewAdapter(Dashboard.getDataSet());
-        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setAdapter(adapter);
 
-        TextView noNew = (TextView) findViewById(R.id.NoNewViolation);
-        if(Dashboard.getDataSet().isEmpty())
-        {
-            noNew.setVisibility(View.VISIBLE);
-        }
 
 
 
     }
 
-    protected void onResume() {
-        super.onResume();
-        ((RecyclerViewAdapter) mAdapter).setOnItemClickListener(new RecyclerViewAdapter
-                .MyClickListener() {
-            @Override
-            public void onItemClick(final int position, View v) {
-                Log.i(LOG_TAG, " Clicked on Item " + position);
-
-            }
-        });
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adapter.startListening();
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
+
+
 
 
 }

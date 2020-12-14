@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,7 +8,7 @@
     tools:context=".PaymentOptions">
 
 
-    <android.support.design.card.MaterialCardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/easypaisaCardView"
         android:layout_width="match_parent"
         android:layout_height="75dp"
@@ -26,10 +26,10 @@
             android:layout_height="match_parent"
             android:src="@drawable/easypaisa" />
 
-    </android.support.design.card.MaterialCardView>
+    </com.google.android.material.card.MaterialCardView>
 
 
-    <android.support.design.card.MaterialCardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/JazzCashCardView"
         android:layout_width="match_parent"
         android:layout_height="75dp"
@@ -50,9 +50,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/mobilink_logo" />
-    </android.support.design.card.MaterialCardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <android.support.design.card.MaterialCardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/visa_mastercardCardView"
         android:layout_width="match_parent"
         android:layout_height="75dp"
@@ -74,9 +74,9 @@
             android:layout_height="match_parent"
             android:src="@drawable/visa_mastercard" />
 
-    </android.support.design.card.MaterialCardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <android.support.design.card.MaterialCardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/paymentdetailsCardView"
         android:layout_width="match_parent"
         android:layout_height="150dp"
@@ -154,7 +154,7 @@
             style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
             android:textColor="@color/button_colors"
             android:textSize="20sp" />
-    </android.support.design.card.MaterialCardView>
+    </com.google.android.material.card.MaterialCardView>
 
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

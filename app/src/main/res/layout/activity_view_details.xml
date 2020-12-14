@@ -10,7 +10,7 @@
 
     android:id="@+id/viewDetailsLayout"
     tools:context=".ViewDetails">
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -29,7 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <android.support.design.card.MaterialCardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView_proofs"
         android:layout_width="match_parent"
         android:layout_height="120dp"
@@ -108,9 +108,9 @@
             android:layout_marginBottom="10dp"
            />
 
-    </android.support.design.card.MaterialCardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <android.support.design.card.MaterialCardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView_Details"
         android:layout_width="match_parent"
         android:layout_height="450dp"
@@ -131,7 +131,7 @@
         app:layout_constraintVertical_bias="0.0">
 
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -372,7 +372,7 @@
 
 
             <TextView
-                android:id="@+id/Location_details"
+                android:id="@+id/location_viewDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -412,36 +412,59 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.05"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Location_details" />
+                app:layout_constraintTop_toBottomOf="@+id/location_viewDetails" />
+
 
             <TextView
                 android:id="@+id/DueDate_Details_TxtView"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:layout_marginTop="15dp"
-                android:gravity="center"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="28dp"
 
+                android:gravity="center"
                 android:text="TextView"
                 android:textSize="17sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.887"
-                app:layout_constraintStart_toEndOf="@+id/CNIC"
+                app:layout_constraintHorizontal_bias="0.994"
+                app:layout_constraintStart_toEndOf="@+id/DueDate_Details"
                 app:layout_constraintTop_toBottomOf="@+id/Location_TxtView" />
 
+            <TextView
+                android:id="@+id/Speed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="Speed: "
+                android:textColor="@color/whitecolor"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.05"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/DueDate_Details" />
+
+
+            <TextView
+                android:id="@+id/Speed_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="28dp"
+
+                android:gravity="center"
+                android:text="TextView"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/Speed"
+                app:layout_constraintTop_toBottomOf="@+id/DueDate_Details_TxtView" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
-
-
-
-
-
-
-
-        </android.support.constraint.ConstraintLayout>
-
-
-
-    </android.support.design.card.MaterialCardView>
-</android.support.constraint.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

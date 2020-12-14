@@ -1,8 +1,8 @@
 package com.example.usama.trafficlaw;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -18,7 +18,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GetTokenResult;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
 
 //Login Activity
 
@@ -27,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView signUp;
     private EditText username, password;
     private ProgressBar progressBar;
-
     private FirebaseAuth mAuth;
+    ArrayList<Violation> arrayList = new ArrayList<>();
 
     public void clickonTextView(View view)
     {
@@ -38,6 +43,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public  void ClickonTxtForgot(View view)
+    {
+        Intent i =new Intent(MainActivity.this,ForgetPassword.class);
+        startActivity(i);
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,39 +85,67 @@ public class MainActivity extends AppCompatActivity {
                                     public void onComplete(@NonNull Task<AuthResult> task) {
                                         if(task.isSuccessful())
                                         {
-                                            progressBar.setVisibility(View.GONE);
+
                                             Toast.makeText(MainActivity.this, "Successfully Logged In", Toast.LENGTH_LONG).show();
                                             final FirebaseUser user = mAuth.getInstance().getCurrentUser();
+                                            final String value= user.getEmail();
 
-                                               // user.getDisplayName();
-                                               // System.out.println("Name of User" + user.getDisplayName());
-//                                                TextView tx= (TextView) findViewById(R.id.TitleofUser);
-//                                                tx.append(" " + user.getDisplayName());
-
-                                            String value= user.getEmail();
                                             Intent i = new Intent(MainActivity.this, Dashboard.class);
+
                                             i.putExtra("key",value);
                                             startActivity(i);
-                                           user.getIdToken(true).addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
-                                               @Override
-                                               public void onComplete(@NonNull Task<GetTokenResult> task) {
-                                                   if(task.isSuccessful())
-                                                   {
-                                                       String idtoken= task.getResult().getToken();
+                                            progressBar.setVisibility(View.GONE);
 
-                                                   }
-
-                                               }
-                                           });
+//                                            //Get All Documents from firestore, save in Arraylist and pass to other activity through intent
+//                                            FirebaseFirestore db = FirebaseFirestore.getInstance();
+//                                            CollectionReference notebookRef = db.collection("ticket").
+//                                                    document(DataBindFirestore.getUID()).collection("Tickets");
+//                                            notebookRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                                                @Override
+//                                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                                                    for (QueryDocumentSnapshot document : task.getResult())
+//                                                    {
+//                                                        Log.d(TAG, document.getId() + in +" => " + document.getData());
+////                                                        arrayList.add(in, new Violation(
+////                                                                document.getId().toString(),
+////                                                                document.get("Name").toString(),
+////                                                                document.getLong("Speed").intValue(),
+////                                                                document.getDate("DueDate").toString(),
+////                                                                document.get("NumberPlate").toString(),
+////                                                                document.get("ViolationType").toString(),
+////                                                                document.getLong("Fine").intValue(),
+////                                                                document.get("Location").toString()
+////                                                        ));
+//                                                        in +=1;
 //
-//                                            Intent i =new Intent(MainActivity.this,Dashboard.class);
-//                                            startActivity(i);
+//                                                    }
+//
+//                                                }
+//                                            });
+
+
+// TO CREATE OWN INTERFACE FOR ONCOMPLETE DATA GET
+//                                            d.readData(new MyCallBack() {
+//                                                ArrayList<Violation> violations ;
+//
+//                                                @Override
+//                                                public ArrayList<Violation> onCallback(ArrayList<Violation> results) {
+//                                                    Log.d(TAG, results.toString());
+//                                                    System.out.println(results.get(0).getName() + "Whole Fucking DATA W");
+//                                                    violations =  new ArrayList<>(results);
+//                                                    System.out.println(violations.get(0).getName() + "Whole Fucking DATA V");
+//
+//                                                    return results;
+//                                                }
+//
+//                                            });
+
+
                                         }
                                         else
                                             {
                                                 Log.w(TAG, "signInWithEmail:failure", task.getException());
 
-                                                System.out.println("Reason of SIgn in Fail " + task.getException().getMessage());
                                                 Toast.makeText(MainActivity.this, "Authentication failed." + task.getException().getMessage() ,
                                                         Toast.LENGTH_LONG).show();
                                                 progressBar.setVisibility(View.GONE);

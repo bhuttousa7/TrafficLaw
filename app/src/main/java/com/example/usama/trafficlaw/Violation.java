@@ -2,41 +2,67 @@ package com.example.usama.trafficlaw;
 
 import android.annotation.SuppressLint;
 
+import com.google.firebase.Timestamp;
+
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
-public class Violation {
+public class Violation  implements Serializable {
     private String TicketId, ViolationType, Location;
-    private int Amount;
-    private String violationDate;
-    private String dueDate;
+    private int Fine;
+    private Timestamp violationDate;
+    private Timestamp DueDate;
 
+    public String getImageUrl() {
+        return ImageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        ImageUrl = imageUrl;
+    }
+
+    private String ImageUrl;
     private String Name;
-    private String numberPlate;
-    private String Cnic;
+    private String NumberPlate;
+    private long Cnic;
+
+    private int Speed;
 
 
-
-
-    private String Phone;
+    private long Phone;
     private String LicenceNo;
     private String City;
 
+    public int getSpeed() {
+        return Speed;
+    }
+
+    public void setSpeed(int speed) {
+        Speed = speed;
+    }
+
     private String status;
+
+
+
     @SuppressLint("SimpleDateFormat")
     private DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
-    public Violation(String ticketId, String violationType, String location, int amount, String violationDate, String dueDate, String status, String nPlate,
-                     String cnic, String Licence, String City, String name,String phoneNumber) {
+    Calendar c = Calendar.getInstance();
+
+
+    public Violation(String ticketId, String violationType, String location, int amount, Timestamp violationDate, Timestamp dueDate, String status, String nPlate,
+                     long cnic, String Licence, String City, String name, long phoneNumber, int speed ) {
         TicketId = ticketId;
         ViolationType = violationType;
+        Speed = speed;
         Location = location;
-        Amount = amount;
+        Fine = amount;
         this.violationDate = violationDate;
-        this.dueDate = dueDate;
-        this.numberPlate = nPlate;
+        this.DueDate = dueDate;
+        this.NumberPlate = nPlate;
         this.Cnic = cnic;
         this.LicenceNo = Licence;
         this.City = City;
@@ -44,26 +70,33 @@ public class Violation {
         this.Name = name;
         this.Phone = phoneNumber;
     }
-    //Default Constructor for Sample Data and Testing
+    //Default Constructor for Firestore
     public Violation() {
-        TicketId = "ABC1234";
-        ViolationType = "Red Light Violation";
-        Location = "Defence View";
-        Amount = 500;
-        this.Name = "Default";
-        Calendar c = Calendar.getInstance();
-        SimpleDateFormat dateformat = new SimpleDateFormat("dd-MMM-yyyy hh:mm:ss aa");
-        String datetime = dateformat.format(c.getTime());
-        this.violationDate = datetime;
-        this.dueDate = datetime;
-        this.status= "Failed";
-        this.numberPlate = "AVC-871";
-        this.Cnic = "43304-98711515-5";
-        this.LicenceNo = "AV034214";
-        this.City = "Karachi";
-        this.Phone = "+92332-2718432";
+
     }
 
+
+
+    //Constructor For Dummy Data
+    //Some Dummy Data For User which can be changed
+    public Violation(String ticketID, String name, int speed, Timestamp duedate, String numplate, String violationtype, int fine, String location)
+    {
+        this.TicketId = ticketID;
+        this.Name = name;
+        this.Speed = speed;
+        this.DueDate = duedate;
+        this.NumberPlate = numplate;
+        this.ViolationType = violationtype;
+        this.Fine = fine;
+        this.Location = location;
+        this.Phone = 923327132;
+        this.Cnic = 433204324;
+        this.LicenceNo = "AV034214";
+        this.City = "Karachi";
+        this.status= "Failed";
+        this.violationDate = null;
+
+    }
 
     public String getName() {
         return Name;
@@ -97,28 +130,28 @@ public class Violation {
         Location = location;
     }
 
-    public int getAmount() {
-        return Amount;
+    public int getFine() {
+        return Fine;
     }
 
-    public void setAmount(int amount) {
-        Amount = amount;
+    public void setFine(int fine) {
+        Fine = fine;
     }
 
-    public String getViolationDate() {
+    public Timestamp getViolationDate() {
         return violationDate;
     }
 
-    public void setViolationDate(String violationDate) {
+    public void setViolationDate(Timestamp violationDate) {
         this.violationDate = violationDate;
     }
 
-    public String getDueDate() {
-        return dueDate;
+    public Timestamp getDueDate() {
+        return DueDate;
     }
 
-    public void setDueDate(String dueDate) {
-        this.dueDate = dueDate;
+    public void setDueDate(Timestamp dueDate) {
+        this.DueDate = dueDate;
     }
 
     public DateFormat getDateFormat() {
@@ -138,18 +171,18 @@ public class Violation {
     }
 
     public String getNumberPlate() {
-        return numberPlate;
+        return NumberPlate;
     }
 
     public void setNumberPlate(String numberPlate) {
-        this.numberPlate = numberPlate;
+        this.NumberPlate = numberPlate;
     }
 
-    public String getCnic() {
+    public long getCnic() {
         return Cnic;
     }
 
-    public void setCnic(String cnic) {
+    public void setCnic(long cnic) {
         Cnic = cnic;
     }
 
@@ -168,11 +201,11 @@ public class Violation {
     public void setCity(String city) {
         City = city;
     }
-    public String getPhone() {
+    public long getPhone() {
         return Phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(long phone) {
         Phone = phone;
     }
 }
